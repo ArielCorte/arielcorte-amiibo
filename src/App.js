@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import NavBar from './layouts/NavBar'
+import Products from './routes/Products'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import GlobalStyle from './components/GlobalStyle'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<NavBar />}>
+            <Route index element={<Products />} />
+            <Route path='*' element={<Navigate replace to='/' />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+      <GlobalStyle />
+    </>
+  )
 }
 
-export default App;
+export default App
