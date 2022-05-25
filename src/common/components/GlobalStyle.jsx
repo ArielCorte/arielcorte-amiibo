@@ -6,6 +6,9 @@ const GlobalStyle = createGlobalStyle`
     --primary-color: #ffffff;
     --secondary-color: #484848;
 
+    --subtle-color: #dadada;
+    --light-subtle-color: #f8f8f8;
+
     --figure-color: #fc948c;
     --band-color: #8cd5fc;
     --card-color: #e28cfc;
@@ -19,7 +22,7 @@ body{
     * {
         margin: 0;
         padding: 0;
-        font-family: 'MuseoSans';
+        font-family: 'museo-sans', 'sans-serif';
         font-weight: 300;
         box-sizing: border-box;
     }

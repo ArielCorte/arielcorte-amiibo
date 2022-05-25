@@ -1,16 +1,18 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 import styled from 'styled-components'
-import CartIcon from '../assets/cart_white.svg'
+import CartIcon from '../assets/icons/CartIcon'
 
 function NavBar() {
   return (
     <>
       <Wrapper>
-        <div className='logo'>Products</div>
-        <div>
-          <img src={CartIcon} alt='Cart Icon' />
-        </div>
+        <Link to='/' className='logo'>
+          Products
+        </Link>
+        <Link to='/cart'>
+          <CartIcon color='#ffffff' />
+        </Link>
       </Wrapper>
       <Outlet />
     </>

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import amebo from '../api/amebo'
-import Product from '../components/Product'
+import CartProduct from '../../common/components/CartProduct'
+import CartSummary from '../../common/components/CartSummary'
+import amebo from '../../api/amebo'
 
-const Products = () => {
+const Cart = () => {
   const [products, setProducts] = useState({})
 
   useEffect(() => {
@@ -12,10 +13,10 @@ const Products = () => {
 
   return (
     <Wrapper>
-      <div className='products-container'>
+      <div className='cart-products-container'>
         {products.length > 0 ? (
           products.map((product) => (
-            <Product
+            <CartProduct
               img={product.image}
               name={product.name}
               series={product.amiiboSeries}
@@ -28,6 +29,9 @@ const Products = () => {
           <em>Esperando Productos</em>
         )}
       </div>
+      <div className='cart-summary-container'>
+        <CartSummary />
+      </div>
     </Wrapper>
   )
 }
@@ -35,13 +39,10 @@ const Products = () => {
 const Wrapper = styled.div`
   width: 80%;
   margin: auto;
-
-  .products-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-top: 3rem;
-  }
+  display: grid;
+  grid-template-columns: 1fr 40%;
+  grid-gap: 2rem;
+  margin-top: 4rem;
 `
 
-export default Products
+export default Cart

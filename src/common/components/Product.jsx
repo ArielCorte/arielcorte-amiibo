@@ -1,19 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import CartIcon from '../assets/cart.svg'
+import CartIcon from '../assets/icons/CartIcon'
+import TypeBadge from './TypeBadge'
 
 const Product = ({ name, series, type, price, img }) => {
   return (
-    <Card type={type}>
+    <Card>
       <div className='img-container'>
         <img src={img} alt={name} />
       </div>
       <h3 className='name'>{name}</h3>
       <p className='series'>{series}</p>
-      <div className='type'>{type}</div>
+      <TypeBadge type={type} />
       <span className='price'>${price}</span>
       <div className='addToCart'>
-        <img src={CartIcon} alt='' />
+        <CartIcon color='var(--highlight-color)' />
       </div>
     </Card>
   )
@@ -44,16 +45,6 @@ const Card = styled.div`
   .name {
     font-weight: 700;
     font-size: 1.5rem;
-  }
-
-  .type {
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
-    padding: 0.2rem 0.8rem;
-    background-color: var(--${(props) => props.type.toLowerCase()}-color);
-    color: var(--primary-color);
-    align-self: flex-start;
-    border-radius: 9999rem;
   }
 
   .price {
