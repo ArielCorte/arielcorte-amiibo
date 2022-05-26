@@ -28,7 +28,7 @@ const Products = () => {
             />
           ))
         ) : (
-          <em>Esperando Productos</em>
+          <em>Waiting products</em>
         )}
       </div>
     </Wrapper>
@@ -43,7 +43,8 @@ const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 3rem;
+    min-height: 100vh;
+    margin: 3rem 0;
   }
 `
 

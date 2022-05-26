@@ -17,18 +17,20 @@ const Cart = () => {
               name={product.name}
               series={product.amiiboSeries}
               type={product.type}
-              price='60'
+              price={60}
               id={product.id}
               qty={product.qty}
               key={product.id}
             />
           ))
         ) : (
-          <em>Esperando Productos</em>
+          <em>Add products to the cart</em>
         )}
       </div>
       <div className='cart-summary-container'>
-        <CartSummary />
+        <CartSummary
+          subTotal={cartProducts.map((prod) => prod.price.parseInt)}
+        />
       </div>
     </Wrapper>
   )

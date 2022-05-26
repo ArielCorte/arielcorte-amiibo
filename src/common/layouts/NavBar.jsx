@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { BsFillCartFill } from 'react-icons/bs'
 
@@ -14,7 +14,6 @@ function NavBar() {
           <BsFillCartFill size='2.5rem' />
         </Link>
       </Wrapper>
-      <Outlet />
     </>
   )
 }
