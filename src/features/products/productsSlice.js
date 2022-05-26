@@ -19,5 +19,5 @@ export default productsSlice.reducer
 export const getAllProducts = () => (dispatch) => {
   fetch('https://www.amiiboapi.com/api/amiibo')
     .then((res) => res.json())
-    .then((data) => dispatch(setProductsList(data.amiibo)))
+    .then((data) => dispatch(setProductsList(data.amiibo.slice(0, 12))))
 }
