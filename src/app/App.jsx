@@ -1,5 +1,5 @@
 import React from 'react'
-import NavBar from '../layouts/NavBar'
+import NavBar from '../common/layouts/NavBar'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import GlobalStyle from '../common/components/GlobalStyle'
 import Products from '../features/products/Products'
