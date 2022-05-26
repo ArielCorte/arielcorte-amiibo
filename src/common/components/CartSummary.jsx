@@ -2,13 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import { MdNavigateNext } from 'react-icons/md'
 
-const CartSummary = () => {
+const CartSummary = ({ subTotal, taxPct }) => {
   return (
     <Wrapper>
       <h2>Order Summary</h2>
-      <div className='subtotal'>Item(s) subtotal</div>
-      <div className='tax'>Estimated tax</div>
-      <div className='total'>Estimated total</div>
+      <div className='subtotal'>Item(s) subtotal {subTotal}</div>
+      <div className='tax'>
+        Estimated tax {Math.round((subTotal / 100) * taxPct * 100) / 100}
+      </div>
+      <div className='total'>
+        Estimated total {subTotal + (subTotal / 100) * taxPct}
+      </div>
       <button className='checkout'>
         <MdNavigateNext size='24' /> Checkout
       </button>
@@ -23,6 +27,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 0.3rem;
+  font-weight: 700;
 
   h2,
   .subtotal,

@@ -22,7 +22,7 @@ const Products = () => {
               name={product.name}
               series={product.amiiboSeries}
               type={product.type}
-              price='60'
+              price={60}
               id={product.head + product.tail}
               key={product.head + product.tail}
             />

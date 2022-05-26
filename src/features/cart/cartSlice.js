@@ -20,7 +20,7 @@ export const cartSlice = createSlice({
       }
     },
     subQty(state, action) {
-      if (state.find((prod) => prod.id === action.payload).qty > 0) {
+      if (state.find((prod) => prod.id === action.payload).qty > 1) {
         state.find((prod) => prod.id === action.payload).qty--
       }
     },

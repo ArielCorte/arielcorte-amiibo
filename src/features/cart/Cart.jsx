@@ -29,7 +29,11 @@ const Cart = () => {
       </div>
       <div className='cart-summary-container'>
         <CartSummary
-          subTotal={cartProducts.map((prod) => prod.price.parseInt)}
+          subTotal={cartProducts.reduce(
+            (partialSum, prod) => partialSum + prod.price * prod.qty,
+            0
+          )}
+          taxPct={21}
         />
       </div>
     </Wrapper>
