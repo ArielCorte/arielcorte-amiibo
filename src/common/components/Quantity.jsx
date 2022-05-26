@@ -1,17 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import MinusIcon from '../assets/icons/MinusIcon'
-import PlusIcon from '../assets/icons/PlusIcon'
+import { FaPlus, FaMinus } from 'react-icons/fa'
 
-const Quantity = () => {
+const Quantity = ({ handleAddClick, handleSubClick, qty }) => {
   return (
     <Wrapper>
-      <button>
-        <PlusIcon color='var(--secondary-color)' size='12' />
+      <button onClick={handleAddClick}>
+        <FaPlus size='12' />
       </button>
-      <div className='quantity'>1</div>
-      <button>
-        <MinusIcon color='var(--secondary-color)' size='12' />
+      <div className='quantity'>{qty}</div>
+      <button onClick={handleSubClick}>
+        <FaMinus size='12' />
       </button>
     </Wrapper>
   )
@@ -40,6 +39,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     flex-grow: 1;
+    color: var(--secondary-color);
   }
 
   button:hover {

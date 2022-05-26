@@ -3,7 +3,29 @@ import styled from 'styled-components'
 import Quantity from './Quantity'
 import TypeBadge from './TypeBadge'
 
-const CartProduct = ({ name, series, type, price, image }) => {
+import { connect } from 'react-redux'
+import { removeFromCart, addQty, subQty } from '../../features/cart/cartSlice'
+
+const CartProduct = ({
+  name,
+  series,
+  type,
+  price,
+  image,
+  id,
+  qty,
+  removeFromCart,
+  addQty,
+  subQty,
+}) => {
+  function handleAddClick() {
+    addQty(id)
+  }
+
+  function handleSubClick() {
+    subQty(id)
+  }
+
   return (
     <Wrapper>
       <div className='data'>
@@ -18,14 +40,28 @@ const CartProduct = ({ name, series, type, price, image }) => {
       </div>
       <div className='quantity-container'>
         <p className='quantity-label'>Quantity</p>
-        <Quantity />
+        <Quantity
+          handleAddClick={handleAddClick}
+          handleSubClick={handleSubClick}
+          qty={qty}
+        />
       </div>
       <div className='price-and-remove'>
         <div className='price'>${price}</div>
-        <button className='remove'>Remove</button>
+        <button className='remove' onClick={() => removeFromCart(id)}>
+          Remove
+        </button>
       </div>
     </Wrapper>
   )
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeFromCart: (id) => dispatch(removeFromCart(id)),
+    addQty: (id) => dispatch(addQty(id)),
+    subQty: (id) => dispatch(subQty(id)),
+  }
 }
 
 const Wrapper = styled.div`
@@ -84,7 +120,13 @@ const Wrapper = styled.div`
     font-weight: 700;
     font-size: 1rem;
     border-bottom: 0.2rem solid var(--highlight-color);
+    cursor: pointer;
+  }
+
+  .remove:hover {
+    color: var(--highlight-color-active);
+    border-color: var(--highlight-color-active);
   }
 `
 
-export default CartProduct
+export default connect(null, mapDispatchToProps)(CartProduct)

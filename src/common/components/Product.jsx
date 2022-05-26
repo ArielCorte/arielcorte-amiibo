@@ -1,13 +1,26 @@
 import React from 'react'
 import styled from 'styled-components'
-import CartIcon from '../assets/icons/CartIcon'
 import TypeBadge from './TypeBadge'
-import { HiShoppingCart } from 'react-icons/hi'
+import { BsCartPlusFill, BsCartCheckFill } from 'react-icons/bs'
 
 import { connect } from 'react-redux'
-import { addToCart } from '../../features/cart/cartSlice'
+import { addToCart, removeFromCart } from '../../features/cart/cartSlice'
+import { useSelector } from 'react-redux'
 
-const Product = ({ name, series, type, price, image, addToCart }) => {
+const Product = ({
+  name,
+  series,
+  type,
+  price,
+  image,
+  id,
+  addToCart,
+  removeFromCart,
+}) => {
+  const cartProducts = useSelector((state) => state.cart)
+
+  const inCart = cartProducts.find((prod) => prod.id === id)
+
   return (
     <Card>
       <div className='img-container'>
@@ -19,8 +32,16 @@ const Product = ({ name, series, type, price, image, addToCart }) => {
       <span className='price'>${price}</span>
       <div
         className='addToCart'
-        onClick={() => addToCart({ name, series, type, price, image })}>
-        <HiShoppingCart size='2.5rem' />
+        onClick={() =>
+          !inCart
+            ? addToCart({ name, series, type, price, image, id })
+            : removeFromCart(id)
+        }>
+        {inCart ? (
+          <BsCartCheckFill size='2.5rem' />
+        ) : (
+          <BsCartPlusFill size='2.5rem' />
+        )}
       </div>
     </Card>
   )
@@ -28,7 +49,8 @@ const Product = ({ name, series, type, price, image, addToCart }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addToCart: (id) => dispatch(addToCart(id)),
+    addToCart: (prod) => dispatch(addToCart(prod)),
+    removeFromCart: (id) => dispatch(removeFromCart(id)),
   }
 }
 
@@ -76,7 +98,7 @@ const Card = styled.div`
     cursor: pointer;
   }
   .addToCart svg:hover {
-    color: #ff2638;
+    color: var(--highlight-color-active);
   }
 `
 

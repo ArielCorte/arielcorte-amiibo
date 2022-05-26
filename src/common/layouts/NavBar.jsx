@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import styled from 'styled-components'
-import CartIcon from '../assets/icons/CartIcon'
+import { BsFillCartFill } from 'react-icons/bs'
 
 function NavBar() {
   return (
@@ -11,7 +11,7 @@ function NavBar() {
           Products
         </Link>
         <Link to='/cart'>
-          <CartIcon color='#ffffff' />
+          <BsFillCartFill size='2.5rem' />
         </Link>
       </Wrapper>
       <Outlet />

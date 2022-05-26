@@ -18,7 +18,9 @@ const Cart = () => {
               series={product.amiiboSeries}
               type={product.type}
               price='60'
-              key={product.tail}
+              id={product.id}
+              qty={product.qty}
+              key={product.id}
             />
           ))
         ) : (

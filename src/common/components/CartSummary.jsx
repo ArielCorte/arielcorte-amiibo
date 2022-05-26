@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import NextIcon from '../assets/icons/NextIcon'
+import { MdNavigateNext } from 'react-icons/md'
 
 const CartSummary = () => {
   return (
@@ -10,7 +10,7 @@ const CartSummary = () => {
       <div className='tax'>Estimated tax</div>
       <div className='total'>Estimated total</div>
       <button className='checkout'>
-        <NextIcon color='#ffffff' size='24' /> Checkout
+        <MdNavigateNext size='24' /> Checkout
       </button>
     </Wrapper>
   )
