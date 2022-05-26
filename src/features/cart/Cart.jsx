@@ -1,23 +1,19 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import CartProduct from '../../common/components/CartProduct'
 import CartSummary from '../../common/components/CartSummary'
-import amebo from '../../api/amebo'
 
 const Cart = () => {
-  const [products, setProducts] = useState({})
-
-  useEffect(() => {
-    amebo.getProducts(setProducts)
-  }, [])
+  const cartProducts = useSelector((state) => state.cart)
 
   return (
     <Wrapper>
       <div className='cart-products-container'>
-        {products.length > 0 ? (
-          products.map((product) => (
+        {cartProducts.length > 0 ? (
+          cartProducts.map((product) => (
             <CartProduct
-              img={product.image}
+              image={product.image}
               name={product.name}
               series={product.amiiboSeries}
               type={product.type}

@@ -3,12 +3,12 @@ import styled from 'styled-components'
 import Quantity from './Quantity'
 import TypeBadge from './TypeBadge'
 
-const CartProduct = ({ name, series, type, price, img }) => {
+const CartProduct = ({ name, series, type, price, image }) => {
   return (
     <Wrapper>
       <div className='data'>
         <div className='img-container'>
-          <img src={img} alt={name} />
+          <img src={image} alt={name} />
         </div>
         <div className='description'>
           <h3 className='name'>{name}</h3>

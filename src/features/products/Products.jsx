@@ -20,7 +20,7 @@ const Products = () => {
         {products.length > 0 ? (
           products.map((product) => (
             <Product
-              img={product.image}
+              image={product.image}
               name={product.name}
               series={product.amiiboSeries}
               type={product.type}
