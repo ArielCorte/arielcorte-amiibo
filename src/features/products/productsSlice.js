@@ -20,6 +20,7 @@ export const getAllProducts = () => (dispatch) => {
   fetch('https://www.amiiboapi.com/api/amiibo', {
     method: 'GET',
     headers: {
+      'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
     },
   })
