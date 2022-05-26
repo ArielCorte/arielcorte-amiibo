@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import amebo from '../../api/amebo'
 import Product from '../../common/components/Product'
-import { getAllProducts } from './productsSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { getProducts } from './productsSlice'
 
 const Products = () => {
   const { list: products } = useSelector((state) => state.products)
-
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllProducts())
+    dispatch(getProducts())
   }, [dispatch])
 
   return (
