@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import CartIcon from '../assets/icons/CartIcon'
 import TypeBadge from './TypeBadge'
+import { HiShoppingCart } from 'react-icons/hi'
 
 import { connect } from 'react-redux'
 import { addToCart } from '../../features/cart/cartSlice'
@@ -19,7 +20,7 @@ const Product = ({ name, series, type, price, image, addToCart }) => {
       <div
         className='addToCart'
         onClick={() => addToCart({ name, series, type, price, image })}>
-        <CartIcon color='var(--highlight-color)' />
+        <HiShoppingCart size='2.5rem' />
       </div>
     </Card>
   )
@@ -69,10 +70,13 @@ const Card = styled.div`
     right: 0;
     bottom: 0;
     padding: 1rem;
+    color: var(--highlight-color);
   }
-
   .addToCart svg {
     cursor: pointer;
+  }
+  .addToCart svg:hover {
+    color: #ff2638;
   }
 `
 
