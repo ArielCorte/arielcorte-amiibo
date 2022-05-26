@@ -27,6 +27,7 @@ body{
         font-family: 'museo-sans', 'sans-serif';
         font-weight: 300;
         box-sizing: border-box;
+        -webkit-tap-highlight-color: rgba(0,0,0,0)
     }
 
     a {

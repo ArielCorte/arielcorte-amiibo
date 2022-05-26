@@ -26,22 +26,30 @@ const Product = ({
       <div className='img-container'>
         <img src={image} alt={name} />
       </div>
-      <h3 className='name'>{name}</h3>
-      <p className='series'>{series}</p>
-      <TypeBadge type={type} />
-      <span className='price'>${price}</span>
-      <div
-        className='addToCart'
-        onClick={() =>
-          !inCart
-            ? addToCart({ name, series, type, price, image, id })
-            : removeFromCart(id)
-        }>
-        {inCart ? (
-          <BsCartCheckFill size='2.5rem' />
-        ) : (
-          <BsCartPlusFill size='2.5rem' />
-        )}
+      <div className='content-wrapper'>
+        <div className='header'>
+          <h3 className='name'>{name}</h3>
+          <p className='series'>{series}</p>
+          <div className='badge-container'>
+            <TypeBadge type={type} />
+          </div>
+        </div>
+        <div className='bottom'>
+          <div className='price'>${price}</div>
+          <div
+            className='addToCart'
+            onClick={() =>
+              !inCart
+                ? addToCart({ name, series, type, price, image, id })
+                : removeFromCart(id)
+            }>
+            {inCart ? (
+              <BsCartCheckFill size='2.5rem' />
+            ) : (
+              <BsCartPlusFill size='2.5rem' />
+            )}
+          </div>
+        </div>
       </div>
     </Card>
   )
@@ -55,43 +63,65 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const Card = styled.div`
-  width: 245px;
-  height: 340px;
+  width: 15.3rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  position: relative;
-  border: 1px solid var(--secondary-color);
+  border: 1px solid var(--subtle-color);
+  border-radius: 0.3rem;
   padding: 1rem;
 
+  :hover .img-container img {
+    height: 105%;
+  }
+
   .img-container {
-    overflow: hidden;
     width: 100%;
-    height: 264px;
+    height: 14rem;
   }
 
   .img-container img {
+    width: 100%;
     height: 100%;
+    object-fit: contain;
     display: block;
     margin: auto;
+    transition: 150ms ease-in-out;
+  }
+
+  .content-wrapper {
+    margin-top: 2rem;
+    height: 8.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .name {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  .series {
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+  }
+
+  .bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .price {
     font-weight: 700;
     font-size: 1.5rem;
-    margin-top: 1rem;
   }
 
   .addToCart {
-    position: absolute;
     right: 0;
     bottom: 0;
-    padding: 1rem;
     color: var(--highlight-color);
   }
   .addToCart svg {
@@ -99,6 +129,18 @@ const Card = styled.div`
   }
   .addToCart svg:hover {
     color: var(--highlight-color-active);
+  }
+
+  @media screen and (max-width: 460px) {
+    .name {
+      font-size: 1.5rem;
+    }
+    .series {
+      font-size: 1rem;
+    }
+    .img-container {
+      height: 16.5rem;
+    }
   }
 `
 

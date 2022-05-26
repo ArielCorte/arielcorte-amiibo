@@ -42,9 +42,10 @@ const Wrapper = styled.div`
   .products-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     min-height: 100vh;
     margin: 3rem 0;
+    gap: 1rem;
+    justify-content: center;
   }
 `
 

@@ -14,7 +14,7 @@ const CartSummary = ({ subTotal, taxPct }) => {
         Estimated total {subTotal + (subTotal / 100) * taxPct}
       </div>
       <button className='checkout'>
-        <MdNavigateNext size='24' /> Checkout
+        <MdNavigateNext size='50' /> Checkout
       </button>
     </Wrapper>
   )
@@ -43,14 +43,15 @@ const Wrapper = styled.div`
     border-radius: 0.3rem;
     font-weight: 700;
     font-size: 1.125rem;
-    padding: 0 2rem;
+    padding-right: 2rem;
+    padding-left: 1rem;
     align-self: flex-end;
     display: inline-flex;
     align-items: center;
+    cursor: pointer;
   }
-
-  .checkout svg {
-    margin-right: 1rem;
+  .checkout:hover {
+    background-color: var(--highlight-color-active);
   }
 `
 

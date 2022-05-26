@@ -5,7 +5,7 @@ export const getProducts = createAsyncThunk(
   async (obj, { dispatch }) => {
     return fetch('https://www.amiiboapi.com/api/amiibo/')
       .then((res) => res.json())
-      .then((data) => dispatch(setProductsList(data.amiibo.slice(0, 12))))
+      .then((data) => dispatch(setProductsList(data.amiibo)))
   }
 )
 

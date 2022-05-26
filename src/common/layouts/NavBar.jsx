@@ -10,7 +10,7 @@ function NavBar() {
         <Link to='/' className='logo'>
           Products
         </Link>
-        <Link to='/cart'>
+        <Link to='/cart' className='cart'>
           <BsFillCartFill size='2.5rem' />
         </Link>
       </Wrapper>
@@ -30,6 +30,24 @@ const Wrapper = styled.nav`
   .logo {
     font-size: 2rem;
     font-weight: 700;
+  }
+
+  .cart:hover {
+    color: var(--subtle-color);
+  }
+
+  .cart:active {
+    color: var(--secondary-color);
+  }
+
+  @media screen and (max-width: 460px) {
+    padding: 0.5rem 2rem;
+    position: sticky;
+    top: 0;
+
+    .cart:hover {
+      color: var(--primary-color);
+    }
   }
 `
 

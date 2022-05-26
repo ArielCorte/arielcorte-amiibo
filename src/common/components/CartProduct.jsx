@@ -38,19 +38,21 @@ const CartProduct = ({
           <TypeBadge type={type} />
         </div>
       </div>
-      <div className='quantity-container'>
-        <p className='quantity-label'>Quantity</p>
-        <Quantity
-          handleAddClick={handleAddClick}
-          handleSubClick={handleSubClick}
-          qty={qty}
-        />
-      </div>
-      <div className='price-and-remove'>
-        <div className='price'>${price}</div>
-        <button className='remove' onClick={() => removeFromCart(id)}>
-          Remove
-        </button>
+      <div className='actions'>
+        <div className='quantity-container'>
+          <p className='quantity-label'>Quantity</p>
+          <Quantity
+            handleAddClick={handleAddClick}
+            handleSubClick={handleSubClick}
+            qty={qty}
+          />
+        </div>
+        <div className='price-and-remove'>
+          <div className='price'>${price}</div>
+          <button className='remove' onClick={() => removeFromCart(id)}>
+            Remove
+          </button>
+        </div>
       </div>
     </Wrapper>
   )
@@ -74,6 +76,7 @@ const Wrapper = styled.div`
   .data {
     display: flex;
     justify-content: center;
+    gap: 1rem;
   }
 
   .img-container {
@@ -86,16 +89,30 @@ const Wrapper = styled.div`
 
   .img-container img {
     height: 100%;
+    width: 100%;
+    object-fit: contain;
     display: block;
     margin: auto;
   }
 
+  .description {
+    padding: 0.5rem 0;
+    flex-shrink: 9999;
+  }
+
   .name {
     font-weight: 700;
+    font-size: 1.17rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 2rem;
   }
 
   .quantity-container {
     width: 7rem;
+    padding: 0.5rem 0;
   }
 
   .quantity-label {
@@ -111,6 +128,7 @@ const Wrapper = styled.div`
 
   .price {
     font-weight: 700;
+    font-size: 1.17rem;
   }
 
   .remove {
@@ -119,7 +137,7 @@ const Wrapper = styled.div`
     color: var(--highlight-color);
     font-weight: 700;
     font-size: 1rem;
-    border-bottom: 0.2rem solid var(--highlight-color);
+    border-bottom: 0.125rem solid var(--highlight-color);
     cursor: pointer;
   }
 
