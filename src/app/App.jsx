@@ -15,6 +15,11 @@ const App = () => {
       <BrowserRouter>
         <Helmet>
           <link rel='shortcut icon' href={favicon} type='image/x-icon' />
+          <meta name='theme-color' content='#ac000d'></meta>
+          <meta
+            name='description'
+            content='This project is an e-commerce mockup. You can add products to cart, remove them and choose their quantity.'
+          />
           <OpenGraph />
         </Helmet>
         <Routes>
