@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     --yarn-color: #8ed1b5;
 }
 
-body{
+    body{
         margin: 0;
         background-color: var(--primary-color);
         color: var(--secondary-color);
@@ -35,6 +35,20 @@ body{
         text-decoration: none;
         color: var(--primary-color);
     }
+
+    h1 {
+        margin-top: 1rem;
+        font-weight: 700;
+        padding: 0 5rem;
+        font-size: 1.5rem;
+    }
+
+  @media screen and (max-width: 460px) {
+    h1 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+}
 `
 
 export default GlobalStyle

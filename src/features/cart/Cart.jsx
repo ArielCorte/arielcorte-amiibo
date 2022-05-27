@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import CartProduct from '../../common/components/CartProduct'
 import CartSummary from '../../common/components/CartSummary'
 import CartSummaryMobile from '../../common/components/CartSummaryMobile'
-import Heading from '../../common/components/Heading'
 
 const Cart = () => {
   const cartProducts = useSelector((state) => state.cart)
@@ -19,9 +18,19 @@ const Cart = () => {
       <Helmet>
         <title>amiiboStore - Shopping cart</title>
       </Helmet>
-      <Heading>Shopping cart</Heading>
+      <h1>Shopping cart</h1>
       <div className='cart'>
-        {window.innerWidth < 460 ? <CartSummaryMobile /> : null}
+        {window.innerWidth < 460 ? (
+          <CartSummaryMobile
+            total={
+              cartProducts.reduce(
+                (partialSum, prod) => partialSum + prod.price * prod.qty,
+                0
+              ) * 1.21
+            }
+            nItems={cartProducts.length}
+          />
+        ) : null}
         <div className='cart-products-container'>
           {cartProducts.length > 0 ? (
             cartProducts.map((product) => (
@@ -66,16 +75,18 @@ const Wrapper = styled.div`
 
   .cart-products-container {
     flex-grow: 1;
+    border-top: 0.1rem solid var(--subtle-color);
   }
 
   .cart-summary-container {
     width: 40%;
   }
 
-  @media screen and (max-width: 460px) {
+  @media screen and (max-width: 1138px) {
     .cart {
       flex-direction: column;
       width: 90%;
+      margin-top: 2rem;
     }
 
     .cart-summary-container {

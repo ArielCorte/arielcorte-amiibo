@@ -150,7 +150,7 @@ const Wrapper = styled.div`
     border-color: var(--highlight-color-active);
   }
 
-  @media screen and (max-width: 460px) {
+  @media screen and (max-width: 540px) {
     flex-direction: column;
     gap: 0.5rem;
 

@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from './productsSlice'
-import Heading from '../../common/components/Heading'
 
 const Products = () => {
   const { list: products } = useSelector((state) => state.products)
@@ -33,7 +32,7 @@ const Products = () => {
       <Helmet>
         <title>amiiboStore - Products</title>
       </Helmet>
-      <Heading>Products</Heading>
+      <h1>Products</h1>
       <div className='products-container'>
         {products.length > 0 ? (
           products.map((product) => (
