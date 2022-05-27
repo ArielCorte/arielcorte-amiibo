@@ -87,7 +87,7 @@ const Wrapper = styled.div`
   }
 
   .repo {
-    border-left: 0.2rem solid var(--primary-color);
+    border-left: 0.2rem solid var(--subtle-color);
     padding: 2rem;
     display: flex;
     align-items: center;

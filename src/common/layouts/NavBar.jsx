@@ -8,7 +8,7 @@ function NavBar() {
     <>
       <Wrapper>
         <Link to='/' className='logo'>
-          Products
+          amiiboStore
         </Link>
         <Link to='/cart' className='cart'>
           <BsFillCartFill size='2.5rem' />
@@ -28,8 +28,16 @@ const Wrapper = styled.nav`
   padding: 0.5rem 5rem;
 
   .logo {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-family: 'bauhaus-93', 'sans-serif';
+  }
+
+  .logo:hover {
+    color: var(--subtle-color);
+  }
+
+  .logo:active {
+    color: var(--secondary-color);
   }
 
   .cart:hover {
@@ -44,6 +52,10 @@ const Wrapper = styled.nav`
     padding: 0.5rem 2rem;
     position: sticky;
     top: 0;
+
+    .logo {
+      font-size: 2rem;
+    }
 
     .cart:hover {
       color: var(--primary-color);

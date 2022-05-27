@@ -142,6 +142,10 @@ const Card = styled.div`
     .img-container {
       height: 16.5rem;
     }
+
+    .img-container img {
+      pointer-events: none;
+    }
   }
 `
 

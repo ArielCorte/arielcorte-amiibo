@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
     --figure-color: #fc948c;
     --band-color: #8cd5fc;
     --card-color: #e28cfc;
+    --yarn-color: #8ed1b5;
 }
 
 body{
