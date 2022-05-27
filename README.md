@@ -21,9 +21,13 @@ This project is an e-commerce mockup. You can add products to cart, remove them 
 
 ## Screenshots
 
-`![Writing](https://unsplash.com/photos/VBPzRgd7gfc)`
+![Products/Home page](https://imgur.com/oz35z6g)
 
-Picture by [Kelly Sikkema](https://unsplash.com/@kellysikkema)
+![Shopping cart page](https://imgur.com/qAz80Ma)
+
+![Mobile products page](https://imgur.com/KAFAIRy)
+
+![Mobile shoppping cart page](https://imgur.com/cRUiYxf)
 
 ## Technologies
 
@@ -38,7 +42,7 @@ It is built with `CreateReactApp`, `ReduxToolkit`, `ReactRouter` and `StyledComp
 
 ## Approach
 
-I used the `Redux Toolkit` official package to implement `Redux` logic in a standard and minimized way.
+I used the `Redux Toolkit` official package to implement `Redux` logic in a standard and minimized way. I took inspiration from Nintendo's website for the products and the cart.
 
 ## Status
 
