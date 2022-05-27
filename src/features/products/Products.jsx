@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Product from '../../common/components/Product'
+
 import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from './productsSlice'
 
@@ -12,6 +13,19 @@ const Products = () => {
     dispatch(getProducts())
   }, [dispatch])
 
+  const getPrice = (type) => {
+    switch (type.toLowerCase()) {
+      case 'figure':
+        return 60
+      case 'band':
+        return 40
+      case 'card':
+        return 20
+      default:
+        return 10
+    }
+  }
+
   return (
     <Wrapper>
       <div className='products-container'>
@@ -22,7 +36,7 @@ const Products = () => {
               name={product.name}
               series={product.amiiboSeries}
               type={product.type}
-              price={60}
+              price={getPrice(product.type)}
               id={product.head + product.tail}
               key={product.head + product.tail}
             />
