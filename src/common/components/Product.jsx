@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import TypeBadge from './TypeBadge'
 import Price from './Price'
-import { BsCartPlusFill, BsCartCheckFill } from 'react-icons/bs'
+import { BsCartPlus, BsCartCheckFill } from 'react-icons/bs'
 
 import { connect } from 'react-redux'
 import { addToCart, removeFromCart } from '../../features/cart/cartSlice'
@@ -47,7 +47,7 @@ const Product = ({
             {inCart ? (
               <BsCartCheckFill size='2.5rem' />
             ) : (
-              <BsCartPlusFill size='2.5rem' />
+              <BsCartPlus size='2.5rem' />
             )}
           </div>
         </div>

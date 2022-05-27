@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 export const cartSlice = createSlice({
   name: 'cart',
-  initialState: [],
+  initialState: JSON.parse(localStorage.getItem('cart')) || [],
   reducers: {
     addToCart(state, action) {
       if (action.payload in state) {
@@ -24,9 +24,13 @@ export const cartSlice = createSlice({
         state.find((prod) => prod.id === action.payload).qty--
       }
     },
+    resetCart() {
+      return []
+    },
   },
 })
 
-export const { addToCart, removeFromCart, addQty, subQty } = cartSlice.actions
+export const { addToCart, removeFromCart, addQty, subQty, resetCart } =
+  cartSlice.actions
 
 export default cartSlice.reducer

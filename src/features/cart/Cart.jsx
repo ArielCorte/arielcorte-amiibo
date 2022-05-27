@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import CartProduct from '../../common/components/CartProduct'
@@ -7,9 +7,13 @@ import CartSummary from '../../common/components/CartSummary'
 const Cart = () => {
   const cartProducts = useSelector((state) => state.cart)
 
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cartProducts))
+  }, [cartProducts])
+
   return (
     <Wrapper>
-      {window.innerWidth < 460 ? <div></div> : <div></div>}
+      {window.innerWidth < 460 ? <div></div> : null}
       <div className='cart-products-container'>
         {cartProducts.length > 0 ? (
           cartProducts.map((product) => (
@@ -48,6 +52,10 @@ const Wrapper = styled.div`
   gap: 2rem;
   margin-top: 4rem;
   min-height: 100vh;
+
+  .cart-products-container {
+    flex-grow: 1;
+  }
 
   .cart-summary-container {
     width: 40%;

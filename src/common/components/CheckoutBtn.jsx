@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { MdNavigateNext } from 'react-icons/md'
 
-const CheckoutBtn = () => {
+const CheckoutBtn = ({ onClick }) => {
   return (
-    <Btn>
+    <Btn onClick={() => onClick()}>
       <MdNavigateNext size='50' /> Checkout
     </Btn>
   )

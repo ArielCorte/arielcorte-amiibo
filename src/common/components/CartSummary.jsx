@@ -1,8 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import CheckoutBtn from './CheckoutBtn'
 import Price from './Price'
+import { resetCart } from '../../features/cart/cartSlice'
 
-const CartSummary = ({ subTotal, taxPct }) => {
+import { connect } from 'react-redux'
+
+const CartSummary = ({ subTotal, taxPct, resetCart }) => {
   return (
     <Wrapper>
       <h2 className='title'>Order Summary</h2>
@@ -18,8 +22,17 @@ const CartSummary = ({ subTotal, taxPct }) => {
         <p className='label'>Estimated total</p>
         <Price className='price' value={subTotal + (subTotal / 100) * taxPct} />
       </div>
+      <CheckoutBtn onClick={() => resetCart()} />
     </Wrapper>
   )
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    resetCart: () => {
+      dispatch(resetCart())
+    },
+  }
 }
 
 const Wrapper = styled.div`
@@ -65,4 +78,4 @@ const Wrapper = styled.div`
   }
 `
 
-export default CartSummary
+export default connect(null, mapDispatchToProps)(CartSummary)
