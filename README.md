@@ -21,13 +21,13 @@ This project is an e-commerce mockup. You can add products to cart, remove them 
 
 ## Screenshots
 
-![Products/Home page](https://imgur.com/oz35z6g)
+![Products/Home page](./screenshots/Products-Home-page.png)
 
-![Shopping cart page](https://imgur.com/qAz80Ma)
+![Shopping cart page](./screenshots/Shopping-cart-page.png)
 
-![Mobile products page](https://imgur.com/KAFAIRy)
+![Mobile products page](./screenshots/Mobile-products-page.png)
 
-![Mobile shoppping cart page](https://imgur.com/cRUiYxf)
+![Mobile shoppping cart page](./screenshots/Mobile-shopping-cart.png)
 
 ## Technologies
 
