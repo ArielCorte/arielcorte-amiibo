@@ -25,7 +25,7 @@ const Product = ({
   return (
     <Card>
       <div className='img-container'>
-        <img src={image} alt={name} />
+        <img src={image} alt={name} loading='lazy' />
       </div>
       <div className='content-wrapper'>
         <div className='header'>
