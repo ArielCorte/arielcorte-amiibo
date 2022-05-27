@@ -21,6 +21,7 @@ const Wrapper = styled.div`
   border: 1px solid var(--subtle-color);
   border-radius: 0.3rem;
   overflow: hidden;
+  height: 100%;
 
   .quantity {
     padding: 0.5rem;

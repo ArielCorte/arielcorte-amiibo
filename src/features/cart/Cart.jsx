@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import CartProduct from '../../common/components/CartProduct'
@@ -9,6 +9,7 @@ const Cart = () => {
 
   return (
     <Wrapper>
+      {window.innerWidth < 460 ? <div></div> : <div></div>}
       <div className='cart-products-container'>
         {cartProducts.length > 0 ? (
           cartProducts.map((product) => (
@@ -43,10 +44,23 @@ const Cart = () => {
 const Wrapper = styled.div`
   width: 80%;
   margin: auto;
-  display: grid;
-  grid-template-columns: 1fr 40%;
-  grid-gap: 2rem;
+  display: flex;
+  gap: 2rem;
   margin-top: 4rem;
+  min-height: 100vh;
+
+  .cart-summary-container {
+    width: 40%;
+  }
+
+  @media screen and (max-width: 460px) {
+    flex-direction: column;
+    width: 90%;
+
+    .cart-summary-container {
+      width: 100%;
+    }
+  }
 `
 
 export default Cart

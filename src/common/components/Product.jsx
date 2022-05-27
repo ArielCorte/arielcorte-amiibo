@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import TypeBadge from './TypeBadge'
+import Price from './Price'
 import { BsCartPlusFill, BsCartCheckFill } from 'react-icons/bs'
 
 import { connect } from 'react-redux'
@@ -35,7 +36,7 @@ const Product = ({
           </div>
         </div>
         <div className='bottom'>
-          <div className='price'>${price}</div>
+          <Price value={price} className='price' />
           <div
             className='addToCart'
             onClick={() =>
@@ -99,7 +100,7 @@ const Card = styled.div`
 
   .name {
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .series {
@@ -116,7 +117,7 @@ const Card = styled.div`
 
   .price {
     font-weight: 700;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .addToCart {

@@ -5,6 +5,7 @@ import TypeBadge from './TypeBadge'
 
 import { connect } from 'react-redux'
 import { removeFromCart, addQty, subQty } from '../../features/cart/cartSlice'
+import Price from './Price'
 
 const CartProduct = ({
   name,
@@ -39,16 +40,18 @@ const CartProduct = ({
         </div>
       </div>
       <div className='actions'>
-        <div className='quantity-container'>
+        <div className='quantity-wrapper'>
           <p className='quantity-label'>Quantity</p>
-          <Quantity
-            handleAddClick={handleAddClick}
-            handleSubClick={handleSubClick}
-            qty={qty}
-          />
+          <div className='quantity-container'>
+            <Quantity
+              handleAddClick={handleAddClick}
+              handleSubClick={handleSubClick}
+              qty={qty}
+            />
+          </div>
         </div>
         <div className='price-and-remove'>
-          <div className='price'>${price}</div>
+          <Price className='price' value={price} />
           <button className='remove' onClick={() => removeFromCart(id)}>
             Remove
           </button>
@@ -103,6 +106,7 @@ const Wrapper = styled.div`
   .name {
     font-weight: 700;
     font-size: 1.17rem;
+    margin-bottom: 0.5rem;
   }
 
   .actions {
@@ -110,7 +114,7 @@ const Wrapper = styled.div`
     gap: 2rem;
   }
 
-  .quantity-container {
+  .quantity-wrapper {
     width: 7rem;
     padding: 0.5rem 0;
   }
@@ -144,6 +148,40 @@ const Wrapper = styled.div`
   .remove:hover {
     color: var(--highlight-color-active);
     border-color: var(--highlight-color-active);
+  }
+
+  @media screen and (max-width: 460px) {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .data {
+      width: 100%;
+      gap: none;
+      justify-content: space-between;
+    }
+
+    .description {
+      flex-grow: 1;
+    }
+
+    .quantity-container {
+      width: 9.5rem;
+      height: 3.3rem;
+    }
+
+    .quantity-label {
+      display: none;
+    }
+
+    .actions {
+      width: 100%;
+      gap: none;
+      justify-content: space-between;
+    }
+
+    .price-and-remove {
+      justify-content: space-between;
+    }
   }
 `
 

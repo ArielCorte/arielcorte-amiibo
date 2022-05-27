@@ -1,21 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-import { MdNavigateNext } from 'react-icons/md'
+import Price from './Price'
 
 const CartSummary = ({ subTotal, taxPct }) => {
   return (
     <Wrapper>
-      <h2>Order Summary</h2>
-      <div className='subtotal'>Item(s) subtotal {subTotal}</div>
+      <h2 className='title'>Order Summary</h2>
+      <div className='subtotal'>
+        <p className='label'>Item(s) subtotal</p>{' '}
+        <Price className='price' value={subTotal} />
+      </div>
       <div className='tax'>
-        Estimated tax {Math.round((subTotal / 100) * taxPct * 100) / 100}
+        <p className='label'>Estimated tax ({taxPct}%)</p>
+        <Price className='price' value={(subTotal / 100) * taxPct} />
       </div>
       <div className='total'>
-        Estimated total {subTotal + (subTotal / 100) * taxPct}
+        <p className='label'>Estimated total</p>
+        <Price className='price' value={subTotal + (subTotal / 100) * taxPct} />
       </div>
-      <button className='checkout'>
-        <MdNavigateNext size='50' /> Checkout
-      </button>
     </Wrapper>
   )
 }
@@ -27,31 +29,39 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 0.3rem;
-  font-weight: 700;
 
-  h2,
+  .title,
+  .subtotal,
+  .tax,
+  .total {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .title,
   .subtotal,
   .tax {
     border-bottom: 1px solid var(--subtle-color);
+    padding: 0.5rem 0;
   }
 
-  .checkout {
-    background-color: var(--highlight-color);
-    color: var(--primary-color);
-    border: none;
-    height: 3rem;
-    border-radius: 0.3rem;
+  .title,
+  .label,
+  .price {
     font-weight: 700;
-    font-size: 1.125rem;
-    padding-right: 2rem;
-    padding-left: 1rem;
-    align-self: flex-end;
-    display: inline-flex;
-    align-items: center;
-    cursor: pointer;
   }
-  .checkout:hover {
-    background-color: var(--highlight-color-active);
+
+  .total,
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .title {
+    padding-bottom: 1rem;
+  }
+
+  .total {
+    padding: 1rem 0;
   }
 `
 
